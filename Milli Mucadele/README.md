@@ -5,6 +5,8 @@
 **Açmak için:** `index.html` dosyasını tarayıcıda açmanız yeterli. İnternet ya da kurulum gerekmez.
 
 ## Neler var?
+- **🎒 Peron:** Ünitenin giriş konuları olan Ailemin Tarihi (çekirdek/geniş aile, sözlü tarih), Millî Kültür Ögelerimiz ve Çocuk Oyunları. Trene binmeden önce oynanır.
+- **📚 Konu Akışı:** Ünitenin bütün konuları sırasıyla tek sayfada. Cepheler tablosu ve Batı Cephesi skor tabelası da burada.
 - **🚂 Yolculuk:** Tren defterindeki gibi 22 vagonlu bir tren var; 1881'den 1923'e kadar her vagon bir durak. Her durak aynı adımlarla ilerler: merak sorusu, hikâye ("Aklında kalsın", "Bugün nasıl anıyoruz?", "Gerçek mi?" notları), Atatürk'ün sözünü tamamlama, savaş meydanı, antlaşma ve durak bileti. Vagonlar sırayla açılır.
 - **⚔️ Savaş meydanı:** Her savaşta Türk bayrağının karşısında savaşılan devletin bayrağı (İngiltere, Fransa, Yunanistan, Ermenistan) yer alır. Her doğru cevap bir top atışıdır. Kütahya-Eskişehir'de ordu kaybeder ve geri çekilir; bu, tarihte olduğu gibi anlatılır.
 - **🗺️ Harita:** Türkiye haritasında bütün savaşlar ve olaylar cephe renkleriyle işaretlidir. Atatürk'ün Samsun'dan Ankara'ya yolculuğu hareketli trenle gösterilir. Mondros sonrası işgaller bayraklarla gösterilir. "Harita Avı" oyunu da bu sekmededir.

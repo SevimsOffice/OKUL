@@ -25,6 +25,7 @@ const STATIONS = [
     story: [
       'Selanik\'te küçük bir çocuk vardı: Mustafa. Annesi Zübeyde Hanım, babası Ali Rıza Efendi\'ydi.',
       'Okul çağına gelince evde tatlı bir tartışma başladı. Annesi onun mahalle mektebine gitmesini istedi. Babası ise yeni yöntemle eğitim veren Şemsi Efendi Okulu\'nu istedi. Mustafa önce mahalle mektebine gitti, birkaç gün sonra babası onu Şemsi Efendi Okulu\'na yazdırdı.',
+      'Mustafa asker olmak istiyordu ama annesi buna razı değildi. Mustafa, Selanik Askerî Rüştiyesi\'nin sınavına annesine haber vermeden girdi ve kazandı.',
       'Anlatılır ki matematik öğretmeninin adı da Mustafa\'ydı. Öğretmen, çok başarılı olan öğrencisine gülümseyerek yeni bir ad verdi: Kemal. Bu söz "olgunluk, eksiksizlik" demektir. O günden sonra herkes ona Mustafa Kemal dedi.',
       'Soyadı ise çok sonra, 1934\'te geldi: Türkiye Büyük Millet Meclisi ona Atatürk soyadını verdi.',
     ],
@@ -36,7 +37,7 @@ const STATIONS = [
       { q: 'Mustafa Kemal hangi şehirde doğdu?', a: ['Selanik', 'Samsun', 'Ankara', 'İzmir'], c: 0 },
       { q: '"Atatürk" soyadını ona kim verdi?', a: ['Annesi Zübeyde Hanım', 'Türkiye Büyük Millet Meclisi', 'Öğretmeni', 'Padişah'], c: 1, why: '1934\'te TBMM verdi.' },
     ],
-    heroes: ['zubeyde'],
+    heroes: ['zubeyde', 'ataturk'],
   },
   // ---------------------------------------------------------------- 2
   {
@@ -74,7 +75,7 @@ const STATIONS = [
     hook: 'Şehrinin önünde seni korkutan onlarca dev gemi dursa, ne söylerdin?',
     story: [
       'I. Dünya Savaşı bitti ama Osmanlı Devleti kaybetmişti. 30 Ekim 1918\'de Mondros Ateşkes Antlaşması imzalandı. Osmanlı ordusu dağıtıldı; galip devletler istedikleri yeri işgal edebilecekti.',
-      'Hemen işgaller başladı: İngilizler İstanbul\'u ve Musul\'u, Fransızlar Adana ve çevresini, İtalyanlar Antalya ve çevresini, Yunanlar İzmir\'i işgal etti.',
+      'Hemen işgaller başladı: İngilizler İstanbul\'u ve Musul\'u, Fransızlar Adana ve çevresini, İtalyanlar Antalya ve çevresini, Yunanlar İzmir\'i işgal etti. Doğuda da Ermeniler topraklarımızı almak istiyordu. (İtalyanlar daha sonra savaşmadan Anadolu\'dan çekildi.)',
       '13 Kasım 1918\'de İngiliz, Fransız, İtalyan ve Yunan savaş gemileri İstanbul\'a demir attı. Mustafa Kemal Paşa o gün İstanbul\'a geldi. Yaveri Cevat Abbas\'ın gözleri doldu. Paşa sakin bir sesle şöyle dedi: "Geldikleri gibi giderler."',
       'Bu sözden beş yıl sonra, 6 Ekim 1923\'te Türk ordusu İstanbul\'a girdi ve işgal güçleri şehirden gitti.',
     ],
@@ -103,6 +104,7 @@ const STATIONS = [
       'O sabah İzmir Kordonu insanla doluydu. Yunan gemilerinden askerler çıkıyor, şehir işgal ediliyordu.',
       'Kalabalığın içinde Hasan Tahsin adında bir gazeteci vardı. Asıl adı Osman Nevres\'ti. Yunan askerleri Kordon\'dan ilerlerken o kalabalığın önüne çıktı ve işgalcilere ateş etti. Karşılığında hayatını kaybetti.',
       'Bu haber bütün Anadolu\'ya yayıldı. İzmir 3 yıldan uzun süre, 9 Eylül 1922\'ye kadar işgal altında kaldı.',
+      'Ege\'de halk da boş durmadı: Aydın\'da Yörük Ali Efe, Yunan işgaline karşı ilk Kuvâ-yı Millîye birliklerinden birini kurdu. Gördesli Makbule gibi kadınlar da bu birliklerde savaştı.',
     ],
     fact: 'İzmir\'in 15 Mayıs 1919\'da işgal edildiği ve Hasan Tahsin\'in vurularak şehit olduğu kesindir. "İlk kurşunu o sıktı" bilgisinin ayrıntıları tartışmalıdır; "İzmir\'in ilk direnişçilerinden biri" demek en doğrusudur.',
     remember: '15 Mayıs 1919 = Yunanlar İzmir\'e çıktı. Hasan Tahsin, gazeteci. 9 Eylül 1922 = İzmir\'in kurtuluşu.',
@@ -112,7 +114,7 @@ const STATIONS = [
       { q: 'İzmir\'i işgal eden devletin bayrağı hangisi?', a: ['flag:gr', 'flag:fr', 'flag:gb', 'flag:it'], c: 0 },
       { q: 'İzmir\'in işgalinden 4 gün sonra ne oldu?', a: ['TBMM açıldı', 'Mustafa Kemal Samsun\'a çıktı', 'Lozan imzalandı', 'Cumhuriyet ilan edildi'], c: 1 },
     ],
-    heroes: ['hasan-tahsin'],
+    heroes: ['hasan-tahsin', 'yoruk', 'makbule'],
   },
   // ---------------------------------------------------------------- 5
   {
@@ -193,6 +195,7 @@ const STATIONS = [
     story: [
       'Son durak Sivas\'tı. 4-11 Eylül 1919\'da yurdun her yerinden temsilciler Sivas\'ta bir araya geldi.',
       'Erzurum\'daki kararlar artık bütün yurt için alındı: Vatan bölünemez bir bütündür!',
+      'Bir kalemi tek başına kolayca kırabilirsin. Ama bir deste kalemi bir araya getirirsen en güçlü insan bile kıramaz! Mustafa Kemal de dağınık hâldeki milleti böyle bir araya getirdi: Birlikten kuvvet doğar.',
       'Bütün millî dernekler tek bir çatı altında birleştirildi. Temsil Heyeti artık bütün yurdu temsil ediyordu. Her biri bir adımdı: önce fikir (Amasya), sonra doğu (Erzurum), sonra bütün yurt (Sivas).',
     ],
     fact: 'Kongre tarihleri belgelidir. Kongrenin yapıldığı bina bugün müzedir.',
@@ -202,6 +205,7 @@ const STATIONS = [
       { q: 'Bütün yurttan temsilcilerin katıldığı millî kongre hangisidir?', a: ['Erzurum Kongresi', 'Sivas Kongresi', 'Havza Genelgesi', 'Amasya Genelgesi'], c: 1 },
       { q: 'Sivas Kongresi hangi tarihte toplandı?', a: ['4-11 Eylül 1919', '19 Mayıs 1919', '23 Nisan 1920', '22 Haziran 1919'], c: 0 },
       { q: 'Kongrelerin sırası nasıldır?', a: ['Sivas → Erzurum', 'Erzurum → Sivas', 'Ankara → Erzurum', 'Sivas → Amasya'], c: 1 },
+      { q: 'Tek kalem kolayca kırılır ama bir deste kalem kırılamaz. Bu örnek hangi sözü anlatır?', a: ['Birlikten kuvvet doğar', 'Damlaya damlaya göl olur', 'Ağaç yaşken eğilir', 'Sakla samanı gelir zamanı'], c: 0 },
     ],
   },
   // ---------------------------------------------------------------- 9
@@ -216,6 +220,7 @@ const STATIONS = [
       'Hacı Bayram Camii\'nde Cuma namazı kılındı ve dualar okundu. Camiden Meclis\'e giden yol kalabalıkla doldu.',
       'Milletvekilleri eski bir kulüp binasında toplandı ve Türkiye Büyük Millet Meclisi ilk kez açıldı. Ertesi gün Mustafa Kemal Meclis Başkanı seçildi.',
       'İstanbul\'daki meclis görevini yapamıyordu. Artık Anadolu\'nun ortasında, milletin seçtiği bir meclis Kurtuluş Savaşı\'nı yönetecekti.',
+      'Meclis, düşmanı yurttan atmak için üç cephede savaştı: Doğu Cephesi\'nde Ermenilere, Güney Cephesi\'nde Fransızlara ve Ermenilere, Batı Cephesi\'nde Yunanlılara karşı. Şimdi trenimiz bu cephelere gidiyor!',
     ],
     fact: 'Meclisin 23 Nisan 1920 Cuma günü açıldığı ve Mustafa Kemal\'in ertesi gün (24 Nisan) başkan seçildiği belgelidir.',
     remember: '23 Nisan 1920 = TBMM açıldı (Ankara). 24 Nisan = Mustafa Kemal Meclis Başkanı.',
@@ -224,6 +229,7 @@ const STATIONS = [
     quiz: [
       { q: 'TBMM hangi amaçla açıldı?', a: ['Osmanlı Devleti\'ni yeniden kurmak', 'Kurtuluş Savaşı\'nı yönetmek ve milletin iradesini temsil etmek', 'Padişahı güçlendirmek', 'Saltanatı devam ettirmek'], c: 1 },
       { q: 'TBMM hangi şehirde açıldı?', a: ['İstanbul', 'Sivas', 'Ankara', 'Erzurum'], c: 2 },
+      { q: 'Batı Cephesi\'nde hangi düşmana karşı savaşıldı?', a: ['flag:am', 'flag:fr', 'flag:gr', 'flag:it'], c: 2, why: 'Doğu: Ermeniler • Güney: Fransızlar ve Ermeniler • Batı: Yunanlılar.' },
       { q: '23 Nisan bugün hangi bayramdır?', a: ['Ulusal Egemenlik ve Çocuk Bayramı', 'Zafer Bayramı', 'Cumhuriyet Bayramı', 'Gençlik ve Spor Bayramı'], c: 0 },
     ],
   },
@@ -257,27 +263,29 @@ const STATIONS = [
       { ad: 'Urfa', lat: 37.16, lon: 38.79, not: '11 Nisan 1920 kurtuldu. Unvan: Şanlı' },
       { ad: 'Osmaniye', left: true, lat: 37.07, lon: 36.25, not: '7 Ocak 1922 kurtuldu. Tayyar Rahime' },
     ],
-    ne: 'Düzenli ordu yoktu. Maraş, Antep, Urfa ve Osmaniye halkı Kuvâ-yı Millîye ile Fransızlara karşı direndi.',
+    ne: 'Düzenli ordu yoktu. Maraş, Antep, Urfa ve Osmaniye halkı Kuvâ-yı Millîye ile Fransızlara ve Ermenilere karşı direndi.',
     neden: 'Halk kendi şehrini kendisi kurtardı. Şehirlerimiz Kahraman, Gazi ve Şanlı unvanlarını aldı.',
     hook: 'Bir süt satıcısı, bir hamam kapısı ve zor bir karar: Sessiz mi kalsın, yoksa korusun mu?',
     story: [
-      'Güneyde Fransızlar şehirlerimizi işgal etmişti. Burada düzenli bir ordu yoktu. Halk gönüllü birlikler kurdu: Kuvâ-yı Millîye.',
+      'Güneyde Fransızlar ve onların desteklediği Ermeni birlikleri şehirlerimizi işgal etmişti. Burada düzenli bir ordu yoktu. Halk gönüllü birlikler kurdu: Kuvâ-yı Millîye, yani "millî kuvvetler". Bunlar asker değil; çiftçi, esnaf, öğretmen, imam gibi sıradan insanlardı.',
       'Maraş, 31 Ekim 1919: Bazı işgal askerleri hamamdan çıkan kadınları rahatsız etti. Süt satıcısı İmam, kadınları korumak için silahını çekti. Halk ona Sütçü İmam dedi. Bu olay Maraş\'a cesaret verdi; 22 gün süren sokak savaşlarından sonra Maraş 12 Şubat 1920\'de kurtuldu.',
       'Antep, 1920: Şahin Bey küçük bir birlikle Elmalı Köprüsü\'nde günlerce direndi ve 28 Mart 1920\'de şehit düştü. Antep halkı yaklaşık on ay daha direndi ve 25 Aralık 1921\'de şehir tamamen kurtuldu.',
-      'Osmaniye\'de Rahime Hatun öyle çevik savaştı ki halk ona "Tayyar" (uçan) dedi.',
-      'Güney Cephesi\'nde savaş, Fransa ile imzalanan Ankara Antlaşması (20 Ekim 1921) ile sona erdi.',
+      'Urfa\'da Ali Saip Bey halkı örgütledi; Urfa 11 Nisan 1920\'de kurtuldu. Osmaniye\'de Rahime Hatun öyle çevik savaştı ki halk ona "Tayyar" (uçan) dedi.',
+      'Halk şehrini kendisi kurtardığı için TBMM bu şehirlere unvan verdi: Maraş → Kahramanmaraş, Antep → Gaziantep, Urfa → Şanlıurfa.',
+      'Güney Cephesi\'nde savaş, Fransa ile imzalanan Ankara Antlaşması (20 Ekim 1921) ile sona erdi. Hatay hariç bugünkü güney sınırımız çizildi. Hatay ise 1939\'da Türkiye\'ye katıldı.',
     ],
     fact: 'Şehirlerin kurtuluş tarihleri belgelidir. Şahin Bey\'in son sözü ve Sütçü İmam olayının ayrıntıları halk anlatısıdır.',
-    remember: 'Güney Cephesi = Fransızlara karşı Kuvâ-yı Millîye. Maraş → Kahraman, Antep → Gazi, Urfa → Şanlı.',
+    remember: 'Güney Cephesi = Fransızlar ve Ermenilere karşı Kuvâ-yı Millîye. Maraş → Kahraman, Antep → Gazi, Urfa → Şanlı. Ankara Antlaşması (Hatay hariç güney sınırı).',
     today: 'Kahramanmaraş 12 Şubat\'ta, Şanlıurfa 11 Nisan\'da, Gaziantep 25 Aralık\'ta, Osmaniye 7 Ocak\'ta kurtuluşunu kutlar.',
-    battle: { enemy: ['fr'], result: 'zafer', commander: 'Kuvâ-yı Millîye (halk)', field: 'sehir',
-      sonuc: 'Halk düzenli ordu olmadan Fransızları şehirlerden çıkardı. Ankara Antlaşması ile Güney Cephesi kapandı.' },
+    battle: { enemy: ['fr', 'am'], result: 'zafer', commander: 'Kuvâ-yı Millîye (halk)', field: 'sehir',
+      sonuc: 'Halk düzenli ordu olmadan düşmanı şehirlerden çıkardı. Ankara Antlaşması ile Güney Cephesi kapandı.' },
     treaty: 'ankara',
     quiz: [
-      { q: 'Güney Cephesi\'nde hangi devlete karşı savaşıldı?', a: ['flag:gr', 'flag:fr', 'flag:am', 'flag:it'], c: 1 },
+      { q: 'Güney Cephesi\'nde kimlere karşı savaşıldı?', a: ['flag:gr', 'flag:fr+am', 'flag:gb', 'flag:it'], c: 1, why: 'Fransızlar ve onların desteklediği Ermeni birlikleri.' },
       { q: 'Düzenli ordu olmadığı için halkın kurduğu gönüllü birliklere ne denir?', a: ['Kuvâ-yı Millîye', 'Temsil Heyeti', 'Düzenli ordu', 'Meclis'], c: 0 },
       { q: 'Şehirlere verilen unvanlardan hangisi doğrudur?', a: ['Antep\'e "Şanlı"', 'Maraş\'a "Gazi"', 'Antep\'e "Gazi", Maraş\'a "Kahraman", Urfa\'ya "Şanlı"', 'Urfa\'ya "Kahraman"'], c: 2 },
       { q: 'Elmalı Köprüsü\'nde direnen kahraman kimdir?', a: ['Şahin Bey', 'Hasan Tahsin', 'Seyit Onbaşı', 'Kâzım Karabekir'], c: 0 },
+      { q: 'Ankara Antlaşması ile hangi ilimiz hariç güney sınırımız çizildi?', a: ['Hatay', 'Adana', 'Antep', 'Mersin'], c: 0, why: 'Hatay 1939\'da Türkiye\'ye katıldı.' },
     ],
     heroes: ['sutcu-imam', 'sahin-bey', 'tayyar-rahime', 'ali-saip'],
   },
@@ -291,14 +299,14 @@ const STATIONS = [
     hook: 'Bir kez soğukta acı bir kayıp yaşamış bir ordu, aynı kışa ikinci kez nasıl girer?',
     story: [
       'Doğu\'nun kışı çok serttir. 1914 kışında Sarıkamış\'ta binlerce askerimiz soğuk yüzünden hayatını kaybetmişti. Halk bunu hiç unutmamıştı.',
-      '1920\'de Doğu Cephesi\'ni Kâzım Karabekir Paşa yönetiyordu. Her şeyi dikkatle planlardı.',
+      '1920\'de Doğu Cephesi\'ni Kâzım Karabekir Paşa ve onun komutasındaki 15. Kolordu yönetiyordu. Karabekir her şeyi dikkatle planlardı.',
       'Ordu 1920 sonbaharında ilerledi ve 30 Ekim 1920\'de Kars\'ı geri aldı.',
       'Birkaç hafta sonra, 3 Aralık 1920\'de Gümrü Antlaşması imzalandı ve Doğu Cephesi\'nde savaş bitti.',
     ],
     fact: 'Kars\'ın alınışı ve Gümrü Antlaşması belgelidir. Sarıkamış bağlantısı dönemin ruhunu anlatmak için kurulmuş bir yorumdur.',
     remember: 'Doğu Cephesi = Ermenilere karşı. Komutan: Kâzım Karabekir. Kars 30 Ekim 1920. Gümrü Antlaşması 3 Aralık 1920 (TBMM\'nin ilk antlaşması).',
     today: 'Kars\'ta her yıl 30 Ekim\'de Kurtuluş Günü kutlanır.',
-    battle: { enemy: ['am'], result: 'zafer', commander: 'Kâzım Karabekir Paşa', field: 'kar',
+    battle: { enemy: ['am'], result: 'zafer', commander: 'Kâzım Karabekir Paşa (15. Kolordu)', field: 'kar',
       sonuc: 'Kars geri alındı. Gümrü Antlaşması ile Doğu Cephesi kapandı.' },
     treaty: 'gumru',
     quiz: [
@@ -316,7 +324,7 @@ const STATIONS = [
     neden: 'Düzenli ordunun ilk askerî başarısıdır. Halkın Meclis\'e güveni arttı.',
     hook: 'Gönüllü birlikler mi, yoksa düzenli bir ordu mu daha güçlü olur?',
     story: [
-      'Batıda Yunan ordusu ilerliyordu. Kuvâ-yı Millîye birlikleri cesurdu ama büyük bir orduyu durdurmaya yetmiyordu.',
+      'Batıda İngilizlerin desteklediği Yunan ordusu Ankara\'ya, yani Meclis\'e doğru ilerliyordu. Kuvâ-yı Millîye birlikleri cesurdu ama büyük bir orduyu durdurmaya yetmiyordu.',
       'TBMM bu yüzden Batı Cephesi\'nde düzenli ordu kurdu. Komutanı İsmet Paşa\'ydı.',
       'Ocak 1921\'de Yunan ordusu Eskişehir\'in İnönü mevkiine saldırdı. Düzenli ordumuz onları durdurdu ve geri çekilmek zorunda bıraktı. Bu, düzenli ordunun ilk zaferiydi!',
     ],
@@ -389,6 +397,7 @@ const STATIONS = [
       'Temmuz 1921\'de Yunan ordusu çok daha kalabalık ve güçlü geldi. Düzenli ordumuz Kütahya ve Eskişehir\'de yenildi. Bu, düzenli ordunun Kurtuluş Savaşı\'nda kaybettiği tek savaştır.',
       'Ordu, toparlanmak için Sakarya Nehri\'nin doğusuna çekildi. Meclis\'te büyük bir telaş vardı.',
       '5 Ağustos 1921\'de Meclis, Mustafa Kemal\'i Başkomutan seçti. Ordunun ihtiyaçları için Tekâlif-i Millîye Emirleri çıkarıldı: Her ev bir çift çamaşır, çorap, çarık verdi; halk elindeki yiyeceği, arabayı, atı orduya bağışladı.',
+      'Kadınlar da cephe gerisinde çalıştı: kağnılarla cepheye cephane taşıdılar. Şerife Bacı bunlardan biriydi.',
       'Bütün millet tek bir ordu gibi olmuştu!',
     ],
     fact: 'Kütahya-Eskişehir Savaşları\'nın kaybedildiği, Başkomutanlık Kanunu (5 Ağustos 1921) ve Tekâlif-i Millîye Emirleri belgelidir.',
@@ -396,6 +405,7 @@ const STATIONS = [
     today: 'Tekâlif-i Millîye, milletin dayanışmasının en güzel örneklerinden biri olarak anlatılır.',
     battle: { enemy: ['gr'], result: 'yenilgi', commander: 'İsmet Paşa', field: 'kara',
       sonuc: 'Bu savaş kaybedildi. Ama ordu Sakarya\'nın doğusuna çekilip güç topladı. Millet seferber oldu!' },
+    heroes: ['serife'],
     quiz: [
       { q: 'Düzenli ordunun Kurtuluş Savaşı\'nda kaybettiği tek savaş hangisidir?', a: ['I. İnönü', 'Sakarya', 'II. İnönü', 'Kütahya-Eskişehir Savaşları'], c: 3 },
       { q: 'Halktan orduya yardım toplanan emirlerin adı nedir?', a: ['Takvim-i Millîye', 'Tekâlif-i Millîye Emirleri', 'Yardım Toplama Emirleri', 'Halkın Yardımı Emirleri'], c: 1 },
@@ -442,7 +452,7 @@ const STATIONS = [
       '30 Ağustos\'ta Başkomutanlık Meydan Muharebesi kazanıldı. Mustafa Kemal ordulara şu emri verdi: "Ordular! İlk hedefiniz Akdeniz\'dir. İleri!"',
     ],
     fact: 'Büyük Taarruz\'un tarihleri ve "İlk hedefiniz Akdeniz\'dir" emri belgelidir. Çay ziyafeti haberinin ayrıntıları hikâye edilir.',
-    remember: '26 Ağustos 1922 = Büyük Taarruz (Kocatepe). 30 Ağustos 1922 = Başkomutanlık Meydan Muharebesi = Zafer Bayramı.',
+    remember: '26 Ağustos 1922 = Büyük Taarruz (Kocatepe). 30 Ağustos 1922 = Başkomutanlık Meydan Muharebesi = Zafer Bayramı. Batı Cephesi skor tabelası: I. İnönü 1-0, II. İnönü 2-0, Kütahya-Eskişehir 2-1, Sakarya 3-1, Büyük Taarruz 4-1!',
     today: 'Her yıl 30 Ağustos\'ta Zafer Bayramı kutlanır.',
     quote: { text: 'Ordular! İlk hedefiniz Akdeniz\'dir. İleri!', blank: 'Akdeniz\'dir', opts: ['Akdeniz\'dir', 'Karadeniz\'dir', 'Ankara\'dır', 'Sivas\'tır'], when: '30 Ağustos zaferinden sonra ordulara' },
     battle: { enemy: ['gr'], result: 'zafer', commander: 'Başkomutan Mustafa Kemal', field: 'kara',
@@ -530,6 +540,7 @@ const STATIONS = [
       '13 Ekim 1923\'te Ankara başkent oldu.',
       'Anlatılır ki 28 Ekim 1923 akşamı Çankaya\'da Mustafa Kemal arkadaşlarına şöyle dedi: "Efendiler, yarın Cumhuriyet\'i ilan edeceğiz."',
       'Ertesi gün, 29 Ekim 1923\'te Meclis\'te oylama yapıldı. Türkiye Cumhuriyeti ilan edildi ve Mustafa Kemal ilk cumhurbaşkanı seçildi.',
+      'Atatürk, 10 Kasım 1938\'de İstanbul\'da, Dolmabahçe Sarayı\'nda hayatını kaybetti. Her yıl 10 Kasım\'da saat 09.05\'te onu saygıyla anarız.',
       'Samsun\'dan başlayan yolculuk, Cumhuriyet durağına ulaştı!',
     ],
     fact: '29 Ekim 1923\'te Cumhuriyet\'in ilan edildiği belgelidir. 28 Ekim akşamındaki söz yaygın bir anlatımdır.',
@@ -555,7 +566,7 @@ const TREATIES = {
     sonra: 'Doğu Cephesi (Kars)', maddeler: ['Doğu Cephesi\'nde savaş bitti.', 'Kars bizde kaldı.', 'TBMM\'nin imzaladığı ilk antlaşma.'],
     durum: 'iyi', not: 'TBMM\'nin ilk uluslararası başarısı.' },
   ankara: { ad: 'Ankara Antlaşması', tarih: '20 Ekim 1921', yer: 'Ankara', taraflar: ['tr', 'fr'], tarafAd: 'TBMM — Fransa',
-    sonra: 'Güney Cephesi (ve Sakarya zaferi)', maddeler: ['Güney Cephesi\'nde savaş bitti.', 'Fransızlar güneydeki şehirlerimizden çekildi.'],
+    sonra: 'Güney Cephesi (ve Sakarya zaferi)', maddeler: ['Güney Cephesi\'nde savaş bitti.', 'Fransızlar güneydeki şehirlerimizden çekildi.', 'Hatay hariç bugünkü güney sınırımız çizildi (Hatay 1939\'da katıldı).'],
     durum: 'iyi', not: 'Sakarya zaferinden sonra Fransa TBMM ile anlaştı.' },
   mudanya: { ad: 'Mudanya Ateşkes Antlaşması', tarih: '11 Ekim 1922', yer: 'Mudanya (Bursa)', taraflar: ['tr', 'gb', 'fr', 'it'], tarafAd: 'TBMM — İngiltere, Fransa, İtalya (Yunanistan sonra kabul etti)',
     sonra: 'Büyük Taarruz', maddeler: ['Kurtuluş Savaşı\'nın askerî bölümü bitti.', 'İstanbul, Boğazlar ve Doğu Trakya savaşılmadan alındı.'],
@@ -567,16 +578,20 @@ const TREATIES = {
 
 // ------------------------------------------------------------ KAHRAMANLAR
 const HEROES = {
+  'ataturk': { ad: 'Mustafa Kemal Atatürk', emoji: '🇹🇷', yer: 'Selanik 1881 – İstanbul 1938', not: '1881 Selanik\'te doğdu. Mahalle mektebi ve Şemsi Efendi Okulu\'nda okudu, sonra askerî okullara gitti. 1905\'te Harp Akademisi\'ni kurmay yüzbaşı olarak bitirdi. Trablusgarp\'ta İtalyanlara karşı savaştı, Çanakkale\'de kahraman oldu. 1919\'da Samsun\'a çıktı, 1920\'de TBMM\'yi açtı, Sakarya ve Büyük Taarruz\'u yönetti. 1923\'te Cumhuriyet\'i ilan etti, ilk cumhurbaşkanı oldu. 10 Kasım 1938\'de vefat etti. Dağınık hâldeki milleti birleştirdi: Birlikten kuvvet doğar!' },
   'zubeyde': { ad: 'Zübeyde Hanım', emoji: '👩', yer: 'Selanik', not: 'Atatürk\'ün annesi. Oğlunun mahalle mektebine gitmesini istedi. Büyük Taarruz öncesi oğlunun "çay ziyafeti" verdiğini sandığı anlatılır.' },
   'seyit': { ad: 'Seyit Onbaşı', emoji: '💪', yer: 'Çanakkale, 18 Mart 1915', not: 'Gerçek adı Seyit Ali Çabuk, Balıkesir Havranlı. Anlatılır ki çok ağır bir top mermisini sırtında taşıdı. Rumeli Mecidiye Tabyası\'nda anıtı vardır.' },
   'hasan-tahsin': { ad: 'Hasan Tahsin', emoji: '📰', yer: 'İzmir, 15 Mayıs 1919', not: 'Gazeteci. Asıl adı Osman Nevres. İzmir\'in işgaline karşı ateş edip şehit oldu; İzmir\'in ilk direnişçilerinden biri olarak anılır.' },
-  'karabekir': { ad: 'Kâzım Karabekir Paşa', emoji: '🎖️', yer: 'Doğu Cephesi', not: 'Erzurum Kongresi\'ne destek verdi. Doğu Cephesi komutanı olarak Kars\'ı geri aldı (30 Ekim 1920).' },
+  'karabekir': { ad: 'Kâzım Karabekir Paşa', emoji: '🎖️', yer: 'Doğu Cephesi', not: 'Erzurum Kongresi\'ne destek verdi. 15. Kolordu ile Doğu Cephesi\'ni yönetti, Kars\'ı geri aldı (30 Ekim 1920). Kimsesiz binlerce çocuğa sahip çıktığı için "Çocuk Babası" diye anılır. Daha sonra TBMM Başkanı oldu; 1948\'de vefat etti.' },
   'nene-hatun': { ad: 'Nene Hatun', emoji: '🪓', yer: 'Erzurum, 1877', not: '93 Harbi\'nde (1877-78 Osmanlı-Rus Savaşı) Aziziye Tabyası\'nı baltasıyla savundu. "3. Ordu\'nun Nenesi". Millî Mücadele\'den önceki dönemin kahramanıdır.' },
   'sutcu-imam': { ad: 'Sütçü İmam', emoji: '🥛', yer: 'Maraş, 1919', not: 'Süt satıcısı ve gönüllü imam. 31 Ekim 1919\'da kadınları korumak için işgalcilere ateş etti. Maraş 12 Şubat 1920\'de kurtuldu.' },
   'sahin-bey': { ad: 'Şahin Bey', emoji: '🦅', yer: 'Antep, 1920', not: 'Elmalı Köprüsü\'nde günlerce direndi, 28 Mart 1920\'de şehit oldu. Antep 25 Aralık 1921\'de kurtuldu ve "Gazi" unvanını aldı.' },
-  'tayyar-rahime': { ad: 'Tayyar Rahime', emoji: '🕊️', yer: 'Osmaniye', not: 'Fransız işgaline karşı Kuvâ-yı Millîye\'de savaştı. Çevikliği yüzünden "Tayyar" (uçan) dendi. Osmaniye 7 Ocak 1922\'de kurtuldu.' },
-  'ali-saip': { ad: 'Ali Saip Bey', emoji: '🏹', yer: 'Urfa', not: 'Güney Cephesi\'nde Urfa\'da Fransızlara karşı Kuvâ-yı Millîye\'yi yönetti. Urfa 11 Nisan 1920\'de kurtuldu.' },
-  'ismet': { ad: 'İsmet Paşa (İnönü)', emoji: '🎩', yer: 'Batı Cephesi ve Lozan', not: 'Batı Cephesi\'ndeki düzenli ordunun komutanı. İki İnönü zaferi. Lozan\'da Türk heyetinin başkanı. Soyadını İnönü\'den aldı.' },
+  'tayyar-rahime': { ad: 'Tayyar Rahime', emoji: '🕊️', yer: 'Osmaniye', not: 'Fransız işgaline karşı Kuvâ-yı Millîye\'de savaştı. Çevikliği yüzünden "Tayyar" (uçan) dendi. Osmaniye\'deki Fransız karargâhına yapılan baskına katıldığı anlatılır. Osmaniye 7 Ocak 1922\'de kurtuldu.' },
+  'ali-saip': { ad: 'Ali Saip Bey (Ursavaş)', emoji: '🏹', yer: 'Urfa', not: 'Güney Cephesi\'nde Urfa\'da Fransızlara karşı Kuvâ-yı Millîye\'yi yönetti. Urfa 11 Nisan 1920\'de kurtuldu.' },
+  'ismet': { ad: 'İsmet Paşa (İnönü)', emoji: '🎩', yer: 'Batı Cephesi ve Lozan', not: 'Batı Cephesi\'ndeki düzenli ordunun komutanı. İki İnönü zaferi. Lozan\'da Türk heyetinin başkanı. Soyadını İnönü\'den aldı. Cumhuriyetin ilk başbakanı, Atatürk\'ten sonra ikinci cumhurbaşkanı oldu; 1973\'te vefat etti.' },
+  'yoruk': { ad: 'Yörük Ali Efe', emoji: '⛰️', yer: 'Aydın, 1919', not: 'Ege\'de Yunan işgaline karşı Aydın çevresinde ilk Kuvâ-yı Millîye birliklerinden birini kurdu. TBMM ona İstiklal Madalyası verdi.' },
+  'makbule': { ad: 'Gördesli Makbule', emoji: '🌾', yer: 'Gördes (Manisa)', not: 'Batı Anadolu\'da Kuvâ-yı Millîye\'ye katılıp Yunan işgaline karşı savaşan kadın kahramanlarımızdandır.' },
+  'serife': { ad: 'Şerife Bacı', emoji: '❄️', yer: 'Kastamonu – İnebolu yolu', not: 'Kış günü kağnıyla cepheye cephane taşırken soğukta donarak şehit düştüğü anlatılır. Anlatılır ki cephaneyi kardan korumak için kendi örtüsünü onun üstüne örtmüştü. Cephe gerisinde çalışan kahraman kadınlarımızın simgesidir.' },
   'akif': { ad: 'Mehmet Âkif Ersoy', emoji: '✒️', yer: 'Ankara, 1921', not: 'İstiklal Marşı\'nın şairi. Ödül parasını yoksullara iş öğreten bir kuruma bağışladı.' },
   'fevzi': { ad: 'Fevzi Çakmak', emoji: '🗺️', yer: 'Genelkurmay', not: 'Genelkurmay Başkanı. Büyük Taarruz planını bilen birkaç kişiden biriydi.' },
 };
@@ -633,3 +648,78 @@ const OCCUPATIONS = [
   { f: 'it', ad: 'Antalya', lat: 36.89, lon: 30.71 },
   { f: 'gr', ad: 'İzmir', lat: 38.42, lon: 27.14 },
 ];
+
+// ------------------------------------------------------------ PERON (ünitenin giriş konuları)
+const PERON = [
+  {
+    id: 'aile', title: 'AİLEMİN TARİHİ', tag: 'SÖZLÜ TARİH', date: 'Bugün • Evimizde', icon: '👨‍👩‍👧', type: 'olay', place: 'Ailemiz',
+    ne: 'Ailemizin geçmişini büyüklerimizle konuşarak, fotoğraf ve belgelerle öğreniriz.',
+    hook: 'Dedenin dedesinin adını biliyor musun? Bilmiyorsan, kimden öğrenebilirsin?',
+    story: [
+      'Her ailenin bir geçmişi vardır. Annemizin, babamızın, dedelerimizin ve nenelerimizin yaşadıkları ailemizin tarihini oluşturur. Kökleri geçmişe uzanan bu topluluğa aile deriz.',
+      'Anne, baba ve henüz evlenmemiş çocuklardan oluşan aileye çekirdek aile denir. Aynı evde dede, nine, amca ya da hala gibi akrabalarla birlikte yaşanıyorsa bu geniş ailedir. Şehirlerde daha çok çekirdek aile görülür.',
+      'Ailemizin tarihini öğrenmek için sözlü tarihten yararlanırız. Olayları yaşayanlardan dinleyerek oluşturulan tarih bilgisine sözlü tarih denir. Dedemiz bize çocukluğunu anlatırsa bu bir sözlü tarih çalışmasıdır.',
+      'Sözlü tarih çalışmasının aşamaları: 1) Görüşme yapılacak kişi belirlenir. 2) Görüşmenin yeri ve zamanı belirlenir. 3) Sorular hazırlanır. 4) Kalem, kâğıt, ses kaydı gibi araç-gereçler hazırlanır. 5) Görüşme yapılır. 6) Görüşme kayıtları yazıya geçirilir.',
+      'Fotoğraflar, mektuplar, karneler, diplomalar, madalyalar ve eski eşyalar da ailemizin tarihini öğrenmemize yardım eder. Belki büyük dedelerinden biri Kurtuluş Savaşı\'nda savaşmış bir gazidir. Ailene sor!',
+    ],
+    fact: 'Bu durak, ünitenin "Ailemin Tarihi" bölümünü özetler.',
+    remember: 'Çekirdek aile = anne + baba + evlenmemiş çocuklar. Geniş aile = dede, nine gibi akrabalarla birlikte. Sözlü tarih = yaşayanlardan dinleyerek oluşturulan tarih bilgisi.',
+    today: 'Bir büyüğüne "Çocukluğunda neler oynardınız? Ailemizde Kurtuluş Savaşı\'na katılan biri var mı?" diye sor.',
+    quiz: [
+      { q: 'Anne, baba ve evlenmemiş çocuklardan oluşan aileye ne denir?', a: ['Geniş aile', 'Çekirdek aile', 'Akraba', 'Komşu'], c: 1 },
+      { q: 'Olayları yaşayanlardan dinleyerek oluşturulan tarih bilgisine ne denir?', a: ['Sözlü tarih', 'Masal', 'Efsane', 'Bilmece'], c: 0 },
+      { q: 'Sözlü tarih çalışmasında ilk yapılacak iş hangisidir?', a: ['Kayıtları yazıya geçirmek', 'Görüşme yapılacak kişiyi belirlemek', 'Görüşmeyi yapmak', 'Fotoğraf çekmek'], c: 1 },
+      { q: 'Hangisi aile tarihimizi öğrenmek için kullanabileceğimiz bir kaynak DEĞİLDİR?', a: ['Eski fotoğraflar', 'Dedemin mektupları', 'Annemin eski karnesi', 'Bir çizgi film'], c: 3 },
+    ],
+  },
+  {
+    id: 'kultur', title: 'MİLLÎ KÜLTÜRÜMÜZ', tag: 'BİZİ BİZ YAPANLAR', date: 'Geçmişten bugüne', icon: '🏺', type: 'olay', place: 'Türkiye',
+    ne: 'Dilimiz, bayramlarımız, yemeklerimiz, halk oyunlarımız... Hepsi millî kültür ögelerimizdir.',
+    hook: 'Başka bir ülkeden gelen bir arkadaşın "Siz kimsiniz?" diye sorsa, ona neleri gösterirdin?',
+    story: [
+      'Bir milletin ürettiği duygu, düşünce, inanç ve yaşam biçimlerinin tümüne millî kültür denir.',
+      'Millî kültür ögelerimiz: dilimiz, dinimiz, bayrağımız, bayramlarımız, yemeklerimiz, halk oyunlarımız, türkülerimiz, el sanatlarımız (halı, kilim, çini, ebru), geleneksel kıyafetlerimiz, camiler ve kervansaraylar gibi tarihî yapılarımız, Karagöz ile Hacivat, gelenek-göreneklerimiz ve misafirperverliğimiz.',
+      'Millî bayramlarımız: 23 Nisan Ulusal Egemenlik ve Çocuk Bayramı, 19 Mayıs Atatürk\'ü Anma, Gençlik ve Spor Bayramı, 30 Ağustos Zafer Bayramı, 29 Ekim Cumhuriyet Bayramı. Dinî bayramlarımız: Ramazan Bayramı ve Kurban Bayramı.',
+      'Dilimiz en önemli kültür ögemizdir. Türkçemizi, yabancı kelimeler yerine kendi kelimelerimizle konuşarak koruruz.',
+      'Millî kültür ögelerimizi evimizde, çevremizde ve müzelerde görebiliriz. Ankara\'daki Etnografya Müzesi bunlardan biridir.',
+      'Millî Mücadele\'de dilimizi, bayrağımızı, bayramlarımızı ve vatanımızı korumak için savaştık. Yani bu tren yolculuğu, kültürümüzü koruma yolculuğudur!',
+    ],
+    fact: 'Bu durak, ünitenin "Millî Kültür Ögelerimiz" bölümünü özetler.',
+    remember: 'Millî kültür = bir milletin duygu, düşünce, inanç ve yaşam biçimlerinin tümü. Örnekler: dil, bayramlar, yemekler, halk oyunları, el sanatları.',
+    today: 'Bayramlarda büyüklerimizin elini öperiz, misafirlerimize ikram ederiz: Kültürümüzü her gün yaşatıyoruz!',
+    quiz: [
+      { q: 'Bir milletin ürettiği duygu, düşünce, inanç ve yaşam biçimlerinin tümüne ne denir?', a: ['Millî kültür', 'Aile', 'Sözlü tarih', 'Meclis'], c: 0 },
+      { q: 'Hangisi millî bayramlarımızdan biri DEĞİLDİR?', a: ['23 Nisan', '29 Ekim', 'Ramazan Bayramı', '30 Ağustos'], c: 2, why: 'Ramazan Bayramı dinî bayramımızdır.' },
+      { q: 'Ankara\'da millî kültür ögelerimizin sergilendiği müze hangisidir?', a: ['Etnografya Müzesi', 'Louvre Müzesi', 'Uzay Müzesi', 'Deniz Müzesi'], c: 0 },
+      { q: 'Hangisi millî kültür ögelerimizden biridir?', a: ['Halk oyunları', 'Hamburger', 'Cadılar Bayramı', 'Beyzbol'], c: 0 },
+    ],
+  },
+  {
+    id: 'oyun', title: 'ÇOCUK OYUNLARI', tag: 'GEÇMİŞTEN BUGÜNE', date: 'Dedemizin çocukluğu', icon: '🪀', type: 'olay', place: 'Sokaklar ve bahçeler',
+    ne: 'Saklambaç, körebe, seksek, misket, topaç... Geleneksel oyunlar da kültürümüzün parçasıdır.',
+    hook: 'Büyük deden çocukken tablet de bilgisayar da yoktu. Peki ne oynuyordu?',
+    story: [
+      'Eskiden çocuklar sokaklarda, bahçelerde arkadaşlarıyla birlikte oynardı. Bu oyunlar da millî kültürümüzün bir parçasıdır.',
+      'Geleneksel çocuk oyunlarımızdan bazıları: saklambaç, körebe, yakan top, ip atlama, seksek, çuval yarışı, misket, topaç çevirme, bezirganbaşı, mendil kapmaca, birdirbir, aşık oyunu.',
+      'Saklambaçta ebe gözünü kapatıp sayar, sonra "Önüm, arkam, sağım, solum sobe! Saklanmayan ebe!" diye seslenir.',
+      'Bu oyunlar bedenimizi güçlendirir; arkadaşlığı, paylaşmayı ve kurallara uymayı öğretir. Topaç çevirme gibi bazı oyunlar başka ülkelerde de oynanır.',
+      'Tablet oyunlarını da oynayabiliriz ama fazlası göz ve beden sağlığımıza zarar verir. Ara sıra ekranı bırakıp arkadaşlarımızla geleneksel oyunlar oynayalım!',
+    ],
+    fact: 'Bu durak, ünitenin "Geçmişten Bugüne Çocuk Oyunları" bölümünü özetler.',
+    remember: 'Geleneksel oyunlar: saklambaç, körebe, yakan top, seksek, misket, topaç. Hem eğlendirir hem bedeni güçlendirir.',
+    today: 'Büyüklerine çocukken hangi oyunu oynadıklarını sor ve o oyunu birlikte oynayın!',
+    quiz: [
+      { q: 'Hangisi geleneksel çocuk oyunlarımızdan biri DEĞİLDİR?', a: ['Saklambaç', 'Körebe', 'Seksek', 'Bilgisayar oyunu'], c: 3 },
+      { q: '"Önüm, arkam, sağım, solum sobe!" sözü hangi oyunda söylenir?', a: ['Saklambaç', 'Yakan top', 'İp atlama', 'Misket'], c: 0 },
+      { q: 'Geleneksel çocuk oyunlarının bir faydası hangisidir?', a: ['Göz sağlığımızı bozar', 'Bedenimizi güçlendirir ve arkadaşlığı öğretir', 'Hep yalnız oynanır', 'Hiç faydası yoktur'], c: 1 },
+    ],
+  },
+];
+
+// ------------------------------------------------------------ CEPHELER TABLOSU
+const CEPHE_TABLE = [
+  { cephe: 'Doğu Cephesi', kim: ['am'], kimAd: 'Ermeniler', komutan: 'Kâzım Karabekir Paşa (15. Kolordu)', olay: 'Kars geri alındı (30 Ekim 1920)', ant: 'gumru', st: 'dogu' },
+  { cephe: 'Güney Cephesi', kim: ['fr', 'am'], kimAd: 'Fransızlar ve Ermeniler', komutan: 'Kuvâ-yı Millîye: Sütçü İmam (Maraş), Şahin Bey (Antep), Ali Saip Bey (Urfa), Tayyar Rahime (Osmaniye)', olay: 'Maraş, Antep, Urfa ve Osmaniye kurtuldu', ant: 'ankara', st: 'guney' },
+  { cephe: 'Batı Cephesi', kim: ['gr'], kimAd: 'Yunanlılar (İngiltere destekledi)', komutan: 'Önce Kuvâ-yı Millîye, sonra düzenli ordu: İsmet Paşa, Başkomutan Mustafa Kemal', olay: 'I. İnönü, II. İnönü, Kütahya-Eskişehir, Sakarya, Büyük Taarruz', ant: 'mudanya', st: 'inonu1' },
+];
+const SKOR = [['I. İnönü', '1-0', 'inonu1'], ['II. İnönü', '2-0', 'inonu2'], ['Kütahya-Eskişehir', '2-1', 'kutahya'], ['Sakarya', '3-1', 'sakarya'], ['Büyük Taarruz', '4-1', 'buyuk-taarruz']];

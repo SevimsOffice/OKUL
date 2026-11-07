@@ -123,6 +123,10 @@ VIEWS.yolculuk = v => {
     <p class="lead">Her vagon bir durak. Hikâyeyi dinle, Atatürk'ün sözünü tamamla, savaş meydanında soruları bil, antlaşmaları çantana topla!</p></div>
     <div class="progressbar" title="İlerleme"><i style="width:${doneCount() / STATIONS.length * 100}%"></i></div>
   </div>
+  <div class="card peron">
+    <div class="peron-head"><b>🎒 Peron — Trene binmeden önce</b><small>Ünitenin ilk konuları: önce kendimizi ve kültürümüzü tanıyalım, sonra Millî Mücadele yolculuğuna çıkalım.</small></div>
+    <div class="peron-list">${PERON.map((p, k) => `<button class="booth ${S.done[p.id] ? 'done' : ''}" data-peron="${k}"><span class="e">${p.icon}</span><b>${p.title}</b><small>${p.tag}</small><span class="st">${S.done[p.id] ? '⭐'.repeat(S.done[p.id]) : '▶ Başla'}</span></button>`).join('')}</div>
+  </div>
   <div class="timeline">${STATIONS.map((s, i) => `<span class="tl ${S.done[s.id] ? 'done' : ''} ${i === ci && !S.done[s.id] ? 'cur' : ''} ${unlocked(i) ? '' : 'lock'}" data-st="${i}">${i + 1}. ${s.date.split('•')[0].replace(/.*(\d{4}).*/, '$1')} ${s.icon}</span>`).join('')}</div>
   <div class="train-wrap" id="tw">
     <div class="train">
@@ -147,6 +151,7 @@ VIEWS.yolculuk = v => {
     </div>
   </div>`;
   $$('[data-st]', v).forEach(el => el.onclick = () => openStation(+el.dataset.st));
+  $$('[data-peron]', v).forEach(el => el.onclick = () => openStation(+el.dataset.peron, PERON));
   const en = $('#enter'); if (en) en.onclick = () => openStation(ci);
   // vagonu ortala
   const w = $(`.wagon[data-st="${ci}"]`, v), tw = $('#tw');
@@ -157,15 +162,16 @@ VIEWS.yolculuk = v => {
 const STEP_NAMES = { kanca: '🤔 Merak', hikaye: '📖 Hikâye', soz: '💬 Atatürk ne dedi?', savas: '⚔️ Savaş Meydanı', antlasma: '📜 Antlaşma', bilet: '🎫 Durak Bileti' };
 let RUN = null;
 
-function openStation(i) {
-  if (!unlocked(i)) { SFX.no(); toast('🔒 Bu vagon kilitli. Önce önceki durağı tamamla!'); return; }
-  const st = STATIONS[i];
+function openStation(i, list = STATIONS) {
+  const peron = list === PERON;
+  if (!peron && !unlocked(i)) { SFX.no(); toast('🔒 Bu vagon kilitli. Önce önceki durağı tamamla!'); return; }
+  const st = list[i];
   const steps = ['kanca', 'hikaye'];
   if (st.quote) steps.push('soz');
   if (st.battle) steps.push('savas');
   if (st.treaty) steps.push('antlasma');
   if (!st.battle) steps.push('bilet');
-  RUN = { i, st, steps, step: 0, ok: {}, mistakes: 0, para: 0, first: !S.done[st.id] };
+  RUN = { i, st, list, peron, label: peron ? '🎒 Peron ' + (i + 1) + ':' : (i + 1) + '.', steps, step: 0, ok: {}, mistakes: 0, para: 0, first: !S.done[st.id] };
   $('#overlay').classList.remove('hidden'); document.body.style.overflow = 'hidden';
   SFX.whistle(); renderStep();
 }
@@ -180,7 +186,7 @@ function renderStep() {
   const sh = $('#sheet');
   sh.innerHTML = `
     <div class="st-head">
-      <h2>${RUN.i + 1}. ${st.title}</h2>
+      <h2>${RUN.label} ${st.title}</h2>
       <div class="meta"><span class="badge ${st.type}">${{ savas: '⚔️ SAVAŞ', antlasma: '📜 ANTLAŞMA', olay: '⭐ OLAY' }[st.type]}</span>
       <span>📅 ${st.date}</span><span>📍 ${st.place}</span></div>
     </div>
@@ -280,12 +286,12 @@ const STEPS = {
 };
 
 function finishStation() {
-  const { st, mistakes, first, i } = RUN;
+  const { st, mistakes, first, i, list, peron } = RUN;
   const stars = mistakes === 0 ? 3 : mistakes <= 2 ? 2 : 1;
   S.done[st.id] = Math.max(S.done[st.id] || 0, stars);
   if (first) addPoints(20); else save();
   SFX.whistle(); setTimeout(SFX.win, 700); confetti();
-  const next = STATIONS[i + 1];
+  const next = list[i + 1];
   $('#sheet').innerHTML = `
     <div class="st-head"><h2>✅ ${st.title} tamamlandı!</h2></div>
     <button class="close" title="Kapat">✕</button>
@@ -297,12 +303,13 @@ function finishStation() {
       ${st.lat && !st.off && !st.nomap ? '<p>🗺️ Haritada bu yer işaretlendi!</p>' : ''}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px">
         <button class="btn light" id="tohome">🚂 Trene dön</button>
-        ${next ? `<button class="btn" id="tonext">Sonraki durak: ${next.title} ▶</button>` : `<button class="btn gold" id="tocert">🏅 Belgemi al</button>`}
+        ${next ? `<button class="btn" id="tonext">Sonraki durak: ${next.title} ▶</button>` : peron ? `<button class="btn" id="totrain">🚂 Trene bin: ${STATIONS[0].title} ▶</button>` : `<button class="btn gold" id="tocert">🏅 Belgemi al</button>`}
       </div>
     </div>`;
   $('.close').onclick = closeStation;
   $('#tohome').onclick = closeStation;
-  const tn = $('#tonext'); if (tn) tn.onclick = () => openStation(i + 1);
+  const tn = $('#tonext'); if (tn) tn.onclick = () => openStation(i + 1, list);
+  const tt = $('#totrain'); if (tt) tt.onclick = () => openStation(0);
   const tc = $('#tocert'); if (tc) tc.onclick = () => { closeStation(); go('karne'); };
   checkBadges();
 }
@@ -430,6 +437,48 @@ function treatyCard(code, open) {
     <ul>${t.maddeler.map(m => `<li>${m}</li>`).join('')}</ul>
     <p style="margin:8px 0 0"><i>${t.not}</i></p></div>`;
 }
+
+// ============================================================ KONU AKIŞI
+function chip(id) {
+  const pi = PERON.findIndex(p => p.id === id), si = idx(id);
+  const s = pi >= 0 ? PERON[pi] : STATIONS[si];
+  return `<button class="fchip ${S.done[id] ? 'done' : ''}" data-open="${pi >= 0 ? 'p' + pi : si}">${s.icon} ${s.title} ${S.done[id] ? '✅' : ''}<small>${s.date}</small></button>`;
+}
+VIEWS.ozet = v => {
+  const arrow = '<span class="farr">➜</span>';
+  const row = ids => ids.map(chip).join(arrow);
+  v.innerHTML = `<h1 class="section-title">📚 Konu Akışı: Bir Kahramanlık Destanı — Millî Mücadele</h1>
+    <p class="lead">Ünitenin bütün konuları sırasıyla. Bir kutuya tıklayınca o durak açılır.</p>
+    <div class="flow">
+      <div class="card fstep"><h3>1. 🎒 Kendimizi tanıyalım</h3><div class="frow">${row(['aile', 'kultur', 'oyun'])}</div></div>
+      <div class="card fstep"><h3>2. 🌍 I. Dünya Savaşı ve işgaller</h3>
+        <p>Mustafa Kemal Selanik'te doğdu, Çanakkale'de kahraman oldu. Osmanlı Devleti I. Dünya Savaşı'nı (1914-1918) kaybetti, Mondros ile yurdumuz işgal edildi. Mustafa Kemal: <b>"Geldikleri gibi giderler."</b></p>
+        <div class="frow">${row(['cocukluk', 'canakkale', 'mondros', 'izmir-isgal'])}</div></div>
+      <div class="card fstep"><h3>3. 🚢 Millî Mücadele başlıyor</h3>
+        <p>Samsun → Havza → Amasya → Erzurum → Sivas → Ankara. Dağınık hâldeki millet bir araya geldi: <b>Birlikten kuvvet doğar!</b> 🖊️🖊️🖊️ (Tek kalem kırılır, deste kalem kırılmaz.)</p>
+        <div class="frow">${row(['samsun', 'amasya', 'erzurum', 'sivas', 'tbmm', 'sevr'])}</div></div>
+      <div class="card fstep"><h3>4. ⚔️ Kurtuluş Savaşı'nın cepheleri</h3>
+        <div class="tablewrap"><table class="ctable"><thead><tr><th>Cephe</th><th>Kimlere karşı?</th><th>Kimler savaştı?</th><th>Ne oldu?</th><th>Antlaşma</th></tr></thead><tbody>
+        ${CEPHE_TABLE.map(c => `<tr><td><b>${c.cephe}</b></td><td>${c.kim.map(f => flag(f, 'sm')).join(' ')} ${c.kimAd}</td><td>${c.komutan}</td><td>${c.olay}</td><td>📜 ${TREATIES[c.ant].ad}<br><small>${TREATIES[c.ant].tarih}</small></td></tr>`).join('')}
+        </tbody></table></div>
+        <div class="frow" style="margin-top:10px">${row(['dogu', 'guney'])}</div></div>
+      <div class="card fstep"><h3>5. 🏆 Batı Cephesi skor tabelası</h3>
+        <p>Önce Kuvâ-yı Millîye savaştı, sonra düzenli ordu kuruldu. Maçın skorunu hatırla:</p>
+        <div class="score">${SKOR.map(([n, sk, id]) => `<button class="sk ${sk.endsWith('-1') && n.startsWith('Küt') ? 'lose' : ''}" data-open="${idx(id)}"><b>${sk}</b><span>${n}</span></button>`).join('')}</div>
+        <p style="margin-top:8px">Arada 12 Mart 1921'de <b>İstiklal Marşı</b> kabul edildi. Sakarya'da Mustafa Kemal: <b>"Hattı müdafaa yoktur, sathı müdafaa vardır."</b> Büyük Taarruz'da: <b>"Ordular! İlk hedefiniz Akdeniz'dir. İleri!"</b></p>
+        <div class="frow">${row(['inonu1', 'istiklal', 'inonu2', 'kutahya', 'sakarya', 'buyuk-taarruz', 'izmir-kurtulus'])}</div></div>
+      <div class="card fstep"><h3>6. 🕊️ Barış ve Cumhuriyet</h3>
+        <p>Mudanya ile savaşın askerî bölümü bitti, Lozan ile bağımsızlığımız dünyaca tanındı, 29 Ekim 1923'te Cumhuriyet ilan edildi.</p>
+        <div class="frow">${row(['mudanya', 'lozan', 'cumhuriyet'])}</div></div>
+      <div class="card fstep"><h3>7. 🦸 Millî Mücadele kahramanları</h3>
+        <div class="heroline">${Object.values(HEROES).map(h => `<span class="hchip">${h.emoji} <b>${h.ad}</b> <small>${h.yer}</small></span>`).join('')}</div>
+        <p><button class="btn light" data-go="kahramanlar">Kahraman kartlarına git ▶</button></p></div>
+    </div>`;
+  $$('[data-open]', v).forEach(b => b.onclick = () => {
+    const o = b.dataset.open;
+    if (o[0] === 'p') openStation(+o.slice(1), PERON); else openStation(+o);
+  });
+};
 
 // ============================================================ HARİTA
 const MAP_LABEL = { canakkale: 'Çanakkale', mondros: 'İstanbul', 'izmir-isgal': 'İzmir', samsun: 'Samsun', amasya: 'Amasya', erzurum: 'Erzurum', sivas: 'Sivas', tbmm: 'Ankara', guney: 'Antep', dogu: 'Kars', inonu1: 'İnönü', kutahya: 'Kütahya', sakarya: 'Sakarya', 'buyuk-taarruz': 'Kocatepe', mudanya: 'Mudanya' };
@@ -587,7 +636,7 @@ VIEWS.antlasmalar = v => {
 
 // ============================================================ KAHRAMANLAR
 VIEWS.kahramanlar = v => {
-  const open = h => S.teacher || STATIONS.some(s => (s.heroes || []).includes(h) && S.done[s.id]);
+  const open = h => S.teacher || STATIONS.concat(PERON).some(s => (s.heroes || []).includes(h) && S.done[s.id]);
   const keys = Object.keys(HEROES);
   v.innerHTML = `<h1 class="section-title">🦸 Kahramanlar ve Hikâye Notları (${keys.filter(open).length}/${keys.length})</h1>
     <p class="lead">Durakları tamamladıkça kahraman kartları açılır. Karta tıkla, arkasını çevir!</p>
@@ -712,6 +761,7 @@ VIEWS.sinav = v => {
 
 // ============================================================ KARNE + ROZETLER
 const BADGES = [
+  { k: 'peron', e: '🎒', ad: 'Kültür Bekçisi', d: 'Peron\'daki 3 durağı tamamla', t: () => PERON.every(s => S.done[s.id]) },
   { k: 'ilk', e: '🚩', ad: 'İlk Adım', d: 'Samsun durağını tamamla', t: () => S.done.samsun },
   { k: 'kongre', e: '🤝', ad: 'Kongre Uzmanı', d: 'Amasya, Erzurum ve Sivas', t: () => S.done.amasya && S.done.erzurum && S.done.sivas },
   { k: 'meclis', e: '🏛️', ad: 'Meclis Muhafızı', d: 'TBMM durağı', t: () => S.done.tbmm },
@@ -742,7 +792,7 @@ VIEWS.karne = v => {
     <h2 class="serif no-print" style="color:var(--bord)">Rozetler</h2>
     <div class="badges no-print">${BADGES.map(b => `<div class="bdg ${b.t() ? '' : 'off'}"><div class="e">${b.e}</div><b>${b.ad}</b><small>${b.d}</small></div>`).join('')}</div>
     <h2 class="serif no-print" style="color:var(--bord)">Durak durak ilerleme</h2>
-    <div class="card no-print" style="columns:2 260px">${STATIONS.map((s, i) => `<div>${S.done[s.id] ? '✅' : unlocked(i) ? '▶️' : '🔒'} ${i + 1}. ${s.title} ${S.done[s.id] ? '⭐'.repeat(S.done[s.id]) : ''}</div>`).join('')}</div>
+    <div class="card no-print" style="columns:2 260px">${PERON.map(s => `<div>${S.done[s.id] ? '✅' : '▶️'} 🎒 ${s.title} ${S.done[s.id] ? '⭐'.repeat(S.done[s.id]) : ''}</div>`).join('')}${STATIONS.map((s, i) => `<div>${S.done[s.id] ? '✅' : unlocked(i) ? '▶️' : '🔒'} ${i + 1}. ${s.title} ${S.done[s.id] ? '⭐'.repeat(S.done[s.id]) : ''}</div>`).join('')}</div>
     <h2 class="serif" style="color:var(--bord)">Belge</h2>
     ${all ? `<div class="cert"><div style="font-size:50px">🇹🇷</div><h2>Millî Mücadele Ekspresi<br>Yolculuk Belgesi</h2>
         <p>Samsun'dan Cumhuriyet'e uzanan ${STATIONS.length} durağın hepsini başarıyla tamamlayan</p>
