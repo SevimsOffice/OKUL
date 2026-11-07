@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Millî Mücadele Ekspresi — 4. Sınıf Sosyal Bilgiler</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand" data-go="yolculuk">
+    <span class="brand-ico">🚂</span>
+    <div><b>Millî Mücadele Ekspresi</b><small>Bağımsızlığa giden yolculuk • 4. Sınıf</small></div>
+  </div>
+  <nav class="tabs">
+    <button data-go="yolculuk">🚂 Yolculuk</button>
+    <button data-go="harita">🗺️ Harita</button>
+    <button data-go="antlasmalar">📜 Antlaşmalar</button>
+    <button data-go="kahramanlar">🦸 Kahramanlar</button>
+    <button data-go="oyunlar">🎮 Oyunlar</button>
+    <button data-go="sinav">📝 Büyük Sınav</button>
+    <button data-go="karne">🏅 Karnem</button>
+  </nav>
+  <div class="stats">
+    <span id="st-name" class="pill"></span>
+    <span class="pill" title="Tamamlanan durak">🎫 <b id="st-done">0</b>/<span id="st-total">0</span></span>
+    <span class="pill" title="Yıldız">⭐ <b id="st-stars">0</b></span>
+    <span class="pill" title="Puan">🏆 <b id="st-points">0</b></span>
+    <button id="mute" class="pill btn-ghost" title="Ses aç/kapat">🔊</button>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<div id="overlay" class="overlay hidden"><div class="sheet" id="sheet"></div></div>
+<div id="toast" class="toast hidden"></div>
+<div id="confetti"></div>
+
+<footer class="foot">
+  Tren, olayların sırasını göstermek için kullanılan bir tasarımdır; Mustafa Kemal bu yolculuğun tamamını trenle yapmamıştır.
+  Tren görselleri: Masel Öğretmen defter çalışması • Hikâyeler: "Gerçek Hikâyelerle Anlatım Rehberi" • Harita: Natural Earth.
+</footer>
+
+<script src="flags.js"></script>
+<script src="map.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
