@@ -723,3 +723,33 @@ const CEPHE_TABLE = [
   { cephe: 'Batı Cephesi', kim: ['gr'], kimAd: 'Yunanlılar (İngiltere destekledi)', komutan: 'Önce Kuvâ-yı Millîye, sonra düzenli ordu: İsmet Paşa, Başkomutan Mustafa Kemal', olay: 'I. İnönü, II. İnönü, Kütahya-Eskişehir, Sakarya, Büyük Taarruz', ant: 'mudanya', st: 'inonu1' },
 ];
 const SKOR = [['I. İnönü', '1-0', 'inonu1'], ['II. İnönü', '2-0', 'inonu2'], ['Kütahya-Eskişehir', '2-1', 'kutahya'], ['Sakarya', '3-1', 'sakarya'], ['Büyük Taarruz', '4-1', 'buyuk-taarruz']];
+
+// ------------------------------------------------------------ MERAK SORULARININ CEVAPLARI
+const HOOK_ANSWERS = {
+  'aile': 'Annene, babana, dedene ya da nenene sorarak öğrenebilirsin! Olayları yaşayan büyüklerimizden dinleyerek öğrenmeye "sözlü tarih" denir. Eski fotoğraflar, mektuplar ve kimlik belgeleri de yardımcı olur.',
+  'kultur': 'Dilimizi, bayrağımızı, bayramlarımızı, yemeklerimizi (kebap, mantı, baklava), halk oyunlarımızı ve el sanatlarımızı gösterebilirsin. Bunların hepsi millî kültür ögelerimizdir.',
+  'oyun': 'Saklambaç, körebe, seksek, misket, topaç, ip atlama, yakan top gibi oyunlar oynuyordu!',
+  'cocukluk': 'Öğretmen ikisini karıştırmamak için başarılı öğrencisine yeni bir ad verdi: Kemal. O günden sonra adı Mustafa Kemal oldu.',
+  'canakkale': 'Anlatılır ki Seyit Onbaşı çok ağır bir top mermisini tek başına sırtına alıp topa taşıdı. Düşman gemileri Boğaz\'ı geçemedi.',
+  'mondros': 'Mustafa Kemal, İstanbul\'a gelen düşman gemilerini görünce "Geldikleri gibi giderler." dedi. Ve gerçekten de gittiler!',
+  'izmir-isgal': 'Gazeteci Hasan Tahsin sessiz kalmadı, işgalcilere karşı ateş etti. Bu cesaret bütün Anadolu\'ya örnek oldu.',
+  'samsun': 'Evet! 41 yaşındaki Bandırma Vapuru, Mustafa Kemal\'i 19 Mayıs 1919\'da Samsun\'a ulaştırdı ve Millî Mücadele başladı.',
+  'amasya': 'Milletin kendisi! Amasya Genelgesi: "Milletin istiklalini yine milletin azim ve kararı kurtaracaktır."',
+  'erzurum': 'Asker olarak emir alması gerekiyordu. Mustafa Kemal askerlikten istifa etti ve milletin bir üyesi olarak çalışmaya devam etti.',
+  'sivas': 'Bütün yurttan gelirse daha güçlü olur! Sivas Kongresi\'nde yurdun her yerinden temsilciler bir araya geldi.',
+  'tbmm': 'O zamanlar bir işe hayırlı başlansın diye kurban kesilir ve dua edilirdi. TBMM de böyle bir törenle açıldı.',
+  'sevr': 'Hiçbir işe yaramaz! TBMM Sevr\'i kabul etmedi; millet savaşarak bu kâğıdı geçersiz kıldı.',
+  'guney': 'Sütçü İmam sessiz kalmadı; kadınları korumak için işgalcilere ateş etti. Bu olay Maraş halkına cesaret verdi.',
+  'dogu': 'Dikkatle plan yaparak! Kâzım Karabekir Paşa her şeyi önceden hazırladı ve Kars\'ı geri aldı.',
+  'inonu1': 'Düzenli ordu! Gönüllüler çok cesurdu ama büyük bir orduyu durdurmak için düzenli bir ordu gerekiyordu. İnönü\'de bu görüldü.',
+  'istiklal': 'Askerlere ve millete cesaret vermek için! İstiklal Marşı "Korkma!" diye başlar.',
+  'inonu2': 'Evet! Mustafa Kemal\'in telgrafı "milletin makûs talihini de yendiniz" diyerek herkese umut verdi.',
+  'kutahya': 'Hayır! Ordu geri çekilip güç topladı, sonra Sakarya\'da büyük bir zafer kazandı.',
+  'sakarya': 'Sakarya Savaşı tam 22 gün 22 gece sürdü ve zaferle bitti.',
+  'buyuk-taarruz': 'Gizlice cepheye gidiyordu! Çay ziyafeti haberi düşmanı şaşırtmak içindi; 26 Ağustos sabahı Büyük Taarruz başladı.',
+  'izmir-kurtulus': 'Kendi bayrağını! 9 Eylül 1922\'de İzmir\'de yeniden Türk bayrağı dalgalandı.',
+  'mudanya': 'Bu kez masada bitti! Mudanya Ateşkesi ile silahlar sustu.',
+  'lozan': 'İsmet Paşa sakin kaldı, hiç geri adım atmadı ve sonunda Lozan Barış Antlaşması imzalandı.',
+  'cumhuriyet': 'Anlatılır ki evet! Mustafa Kemal bir akşam yemeğinde "Yarın Cumhuriyet\'i ilan edeceğiz." dedi; ertesi gün, 29 Ekim 1923\'te Cumhuriyet ilan edildi.',
+};
+STATIONS.concat(PERON).forEach(s => { s.hookAnswer = HOOK_ANSWERS[s.id]; });

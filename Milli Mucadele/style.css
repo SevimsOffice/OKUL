@@ -1,4 +1,5 @@
 :root{
+  color-scheme:light only;
   --bord:#7a1420; --bord2:#5c0f18; --green:#1f3b2d; --green2:#2c5440;
   --gold:#c9a24a; --gold2:#e8cf8a; --cream:#fbf3e0; --paper:#fffaf0;
   --ink:#2b1d14; --muted:#6b5a4a; --ok:#2f855a; --bad:#c53030; --blue:#2b6cb0;
@@ -307,3 +308,10 @@ input.name{font:inherit;font-size:22px;padding:10px 14px;border-radius:12px;bord
 .heroline{display:flex;flex-wrap:wrap;gap:6px}
 .hchip{background:#fff;border:1px solid #e0c994;border-radius:999px;padding:3px 10px;font-size:14px}
 .hchip small{color:var(--muted)}
+
+/* karanlık modda bile yazılar koyu kalsın */
+button,input,textarea,select{color:var(--ink)}
+.opt,.booth,.fchip,.chip,.tl,.hcard .b,.card,.treaty,.bdg,.remember,.fact,.today,.feedback,.ctable td{color:var(--ink)}
+.btn{color:#fff} .btn.light{color:var(--ink)} .btn.gold{color:var(--green)}
+.ochip,.sk,.close,.tabs button,.pill{color:#fff} .tabs button.on{color:var(--green)}
+input,textarea{background:#fff}

@@ -219,7 +219,11 @@ const STEPS = {
     b.innerHTML = `<div class="hook">
       ${st.img ? `<img src="${st.img}" alt="">` : `<div class="bigico">${st.icon}</div>`}
       <div class="bubble">${st.hook}</div></div>
-      <div class="guess"><textarea placeholder="Sence ne olmuştur? Tahminini buraya yazabilirsin (isteğe bağlı)..."></textarea></div>`;
+      <div class="guess"><textarea placeholder="Sence cevap ne? Tahminini buraya yazabilirsin (isteğe bağlı)..."></textarea>
+      ${st.hookAnswer ? '<button class="btn gold" id="showans">💡 Cevabı gör</button>' : ''}</div>
+      <div id="hookans"></div>`;
+    const sa = $('#showans', b);
+    if (sa) sa.onclick = () => { $('#hookans', b).innerHTML = `<div class="remember">💡 <b>Cevap:</b> ${st.hookAnswer}</div>`; sa.remove(); tone(700, .12); };
     okStep('kanca');
   },
   hikaye(b, st) {
