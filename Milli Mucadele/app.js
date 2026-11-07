@@ -3,8 +3,9 @@
 // ============================================================
 const KEY = 'mm-ekspres-v1';
 const DEF = { name: '', done: {}, points: 0, treaties: {}, games: {}, exam: {}, teacher: false, mute: false };
-let S = Object.assign({}, DEF, JSON.parse(localStorage.getItem(KEY) || '{}'));
-const save = () => { localStorage.setItem(KEY, JSON.stringify(S)); renderStats(); };
+let S = Object.assign({}, DEF);
+try { S = Object.assign({}, DEF, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} renderStats(); };
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -799,13 +800,13 @@ VIEWS.karne = v => {
         <div class="nm">${S.name || 'Yolcu'}</div>
         <p>bu belgeyi almaya hak kazanmıştır. ⭐ ${starCount()} yıldız • 🏆 ${S.points} puan</p>
         <p><i>“Egemenlik kayıtsız şartsız milletindir.”</i></p><small>${today}</small></div>
-        <p class="no-print" style="text-align:center"><button class="btn gold" onclick="print()">🖨️ Belgeyi yazdır</button></p>`
+        <p class="no-print" style="text-align:center"><button class="btn gold" onclick="try{print()}catch(e){}">🖨️ Belgeyi yazdır</button><br><small>Yazdırma çalışmazsa ekran görüntüsü alabilirsin.</small></p>`
       : `<div class="card">🔒 Belge, bütün durakları tamamlayınca açılır. (${doneCount()}/${STATIONS.length})</div>`}
     <div class="card no-print" style="margin-top:20px"><h3 style="margin-top:0">👩‍🏫 Öğretmen / Veli ayarları</h3>
       <label><input type="checkbox" id="teach" ${S.teacher ? 'checked' : ''}> Öğretmen modu: bütün vagonları, kahramanları ve antlaşmaları aç (sınıfta anlatım için)</label>
       <p><button class="btn light" id="reset">🗑️ İlerlemeyi sıfırla</button></p></div>`;
   $('#teach').onchange = e => { S.teacher = e.target.checked; save(); toast(S.teacher ? 'Öğretmen modu açık' : 'Öğretmen modu kapalı'); };
-  $('#reset').onclick = () => { if (confirm('Bütün ilerleme silinsin mi?')) { const m = S.mute; S = Object.assign({}, DEF, { done: {}, treaties: {}, games: {}, exam: {}, mute: m }); save(); askName(); go('yolculuk'); } };
+  $('#reset').onclick = e => { const b = e.currentTarget; if (!b.dataset.sure) { b.dataset.sure = 1; b.textContent = '⚠️ Emin misin? Silmek için tekrar bas'; return; } { const m = S.mute; S = Object.assign({}, DEF, { done: {}, treaties: {}, games: {}, exam: {}, mute: m }); save(); askName(); go('yolculuk'); } };
   $('#rename').onclick = askName;
 };
 
